@@ -58,19 +58,19 @@
         },
         {
             "type": "Microsoft.ContainerRegistry/registries",
+            "sku": {
+                "name": "Standard",
+                "tier": "Standard"
+            },
             "name": "[parameters('acrName')]",
-            "apiVersion": "2016-06-27-preview",
+            "apiVersion": "2017-10-01",
             "location": "[resourceGroup().location]",
             "tags": {
                 "displayName": "Container Registry",
                 "container.registry": "[parameters('acrName')]"
             },
             "properties": {
-                "adminUserEnabled": "true",
-                "storageAccount": {
-                    "accessKey": "[listKeys(variables('acrStorageId'),'2015-06-15').key1]",
-                    "name": "[variables('acrStorageName')]"
-                }
+                "adminUserEnabled": true
             },
             "dependsOn": [
                 "[variables('acrStorageId')]"
