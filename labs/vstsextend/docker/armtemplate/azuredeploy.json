@@ -78,6 +78,7 @@
         },
         {
             "type": "Microsoft.Web/sites",
+            "kind": "app,linux,container",
             "name": "[parameters('siteName')]",
             "apiVersion": "2016-08-01",
             "location": "[resourceGroup().location]",
